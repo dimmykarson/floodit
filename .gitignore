@@ -1,0 +1,12 @@
+floodit2.tar.gz
+Makefile.win
+Projeto1.dev
+Projeto1.exe
+Projeto1.layout
+resolve-.txt
+floodit.exe
+*.exe
+*.o
+*.out
+*.h.gch
+
