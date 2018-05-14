@@ -28,6 +28,7 @@ typedef struct {
   double qualidade;
   int fronteira;
   int sugestao;
+
   int restam;
 } tplano;
 
@@ -64,6 +65,5 @@ int * contar_maior_cores(tmapa *);
 void simula_plano_aux(tmapa *m, tplano *p);
 
 #endif
-
 
 

@@ -41,12 +41,11 @@ int main(int argc, char **argv){
 	double delta = 0.0;
 	double alpha = 0.999;
 	
-	
-	/*Alocando solução inicial aleatória*/
 	tplano * s;
 	s = aloca_plano(&mapa);
 	plano_aleatorio(mapa.ncores, s, mapa.ncores);
 	
+
 	/*A função contrair retira da solução passos repetidos*/
 	contrair(s);
 	simula_plano(&mapa, s);
@@ -58,7 +57,7 @@ int main(int argc, char **argv){
 	
 	tplano * melhor_zero;
 	melhor_zero = aloca_plano(&mapa);
-	
+
 	clrscr();
 	printf("\n*********************");
 	printf("\nIniciando Simulated Annealing");
@@ -66,8 +65,7 @@ int main(int argc, char **argv){
 	printf("\nSolucao inicial: ");
 	mostra_plano(s);
 	printf("\nTamanho maximo da solucao: %d", mapa.ncolunas*mapa.nlinhas);
-	printf("\nMapa: %d x %d ", mapa.nlinhas, mapa.ncolunas);
-	//mostra_mapa(&mapa);
+
 	int interacoes = 0;
 	while(temperatura > epsilon){
 		
@@ -129,8 +127,10 @@ no mapa, então seu peso na escolha é 20, logo se nenhuma cor superar o valor de 
 para o próximo movimento.
 
 */
+
 void pertuba(tplano * s, tmapa * m){
-	if(s->sugestao==-1 || s->passos >= m->ncolunas*m->nlinhas){
+	simula_plano(m, s);
+	if(s->sugestao==-1){
 		int pos1 = rand()%s->passos;	
 		int pos2 = rand()%s->passos;		
 		int cor_aux = s->cor[pos1];

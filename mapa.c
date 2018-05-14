@@ -5,8 +5,7 @@
 #include <math.h>
 
 void insere_plano(tplano *p, int cor) {
-	//printf("\nAdicionando cor %d", cor);
-//printf("\nInsere");
+	
   p->cor[p->passos] = cor;
   p->passos++;
 }
@@ -16,7 +15,7 @@ void remove_plano(tplano *p) {
 }
 
 void remove_n_planos(tplano *p, int qt) {
-	//printf("\nRemovendo %d passos", qt);
+	
   p->passos-=qt;
 }
 
@@ -29,7 +28,6 @@ void copia_plano(tplano *po, tplano *pd) {
   pd->fronteira = po->fronteira;
   pd->sugestao = po->sugestao;
   pd->restam = po->restam;
-  
   for(i = 0; i < po->passos; i++)
     pd->cor[i] = po->cor[i];
 
@@ -84,6 +82,7 @@ void simula_plano(tmapa *m, tplano *p) {
   fronteira_mapa(ms, f);
   //printf("\n Contando cores"); 
   p->fronteira = f->tamanho;
+
   //Contando cores
 	int cores[ms->ncores+1] = {};
 	int index_maior=-1;
